@@ -1,20 +1,20 @@
 cmake_minimum_required(VERSION 3.29)
 
-project(simple-cpp-project)
+project(simple_opencv_test)
 
-set(CMAKE_CXX_STANDARD 20)
+find_package(OpenCV 4 REQUIRED)
 
-# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Werror -Wextra -pedantic -fno-math-errno -fno-trapping-math")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-implicitly-unsigned-literal")
-set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0 -fsanitize=address -fsanitize=undefined -fsanitize=bounds")
+set(CMAKE_CXX_STANDARD 17)
 
-include(CMakePrintHelpers)
-cmake_print_variables(CMAKE_CXX_FLAGS_DEBUG)
-cmake_print_variables(CMAKE_BUILD_TYPE)
+if (EMSCRIPTEN)
+    add_link_options(-l nodefs.js)
+    add_link_options(-sNODERAWFS)
+    add_link_options(-sALLOW_MEMORY_GROWTH)
 
+    add_compile_options(-fexceptions)
+    add_link_options(-fexceptions)
+endif()
+
+include_directories(${OpenCV_INCLUDE_DIRS})
 add_executable(main main.cpp)
-
-# target_compile_options(main PRIVATE -Wall -Wextra -Werror -Wpedantic)
-
-# target_compile_options(main PRIVATE -fsanitize=undefined,address)
-# target_link_options(main PRIVATE -fsanitize=undefined,address)
+target_link_libraries(main ${OpenCV_LIBS})
