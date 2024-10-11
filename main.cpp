@@ -33,8 +33,5 @@ int main() {
     // キー入力を待つ
     cv::waitKey(0);
 
-    // 画像を保存する
-    // cv::imwrite("output.bmp", img);
-
     return 0;
 }
