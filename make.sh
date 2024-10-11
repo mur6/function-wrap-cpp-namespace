@@ -7,13 +7,12 @@ build() {
     cmake --build $BUILD_DIR
 }
 
-# test() {
-#     BUILD_DIR=build
-#     echo "BUILD_DIR: $BUILD_DIR"
-#     cd $BUILD_DIR || exit
-#     ./main
-# }
-
+exec_main() {
+    BUILD_DIR=build
+    COMMAND=$BUILD_DIR/main
+    echo "execute: $COMMAND"
+    $COMMAND
+}
 
 # switch by the first argument
 case $1 in
@@ -23,11 +22,11 @@ case $1 in
     "build")
         build
         ;;
-    "test")
-        test
+    "exec_main")
+        exec_main
         ;;
     *)
-        echo "Usage: $0 {clean|build|test}"
+        echo "Usage: $0 {clean|build|exec_main}"
         exit 1
         ;;
 esac
