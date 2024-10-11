@@ -4,7 +4,9 @@
 #include <iostream>
 
 int main() {
+    std::cout << "Hello, OpenCV!" << std::endl;
     std::string img_path = "./images/IMG_3753.jpeg";
+    std::cout << "img_path: " << img_path << std::endl;
 
     // check img_path exists, by using std::filesystem
     if (!std::filesystem::exists(img_path)) {
