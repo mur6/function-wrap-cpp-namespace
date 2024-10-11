@@ -19,11 +19,6 @@ int main() {
     std::cout << "current path: " << current_path << std::endl;
 
     cv::Mat img = cv::imread(img_path);
-    // if (std::filesystem::exists(img_path2)) {
-    //     std::cout << "file found: " << img_path2 << std::endl;
-    // } else {
-    //     std::cout << "file not found: " << img_path2 << std::endl;
-    // }
 
     // 画像が正しく読み込まれたかを確認する
     if(img.empty()) {
