@@ -16,6 +16,8 @@ int main() {
     }
 
     cv::Mat img = cv::imread(img_path);
+    // black image 100x100
+    cv::Mat all_black = cv::Mat::zeros(100, 100, CV_8UC3);
 
     if(img.empty()) {
         std::cout << "画像を読み込めませんでした。" << std::endl;
