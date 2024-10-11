@@ -15,9 +15,8 @@ int main() {
         std::cout << "file found: " << img_path << std::endl;
     }
 
-    cv::Mat img = cv::imread(img_path);
-    // black image 100x100
-    cv::Mat all_black = cv::Mat::zeros(100, 100, CV_8UC3);
+    // cv::Mat img = cv::imread(img_path);
+    cv::Mat img = cv::Mat::zeros(100, 100, CV_8UC3);
 
     if(img.empty()) {
         std::cout << "画像を読み込めませんでした。" << std::endl;
