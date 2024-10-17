@@ -5,9 +5,9 @@
 - c++
 - emscripten
 - opencv
-- clang
-- リンカー, GNU ld
-- wrapオプション
+- 名前空間
+- ~~ リンカー, GNU ld ~~
+- ~~ wrapオプション ~~
 
 ## Prerequisite
 
