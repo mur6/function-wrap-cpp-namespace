@@ -6,8 +6,8 @@
 - emscripten
 - opencv
 - 名前空間
-- ~~ リンカー, GNU ld ~~
-- ~~ wrapオプション ~~
+- ~~リンカー, GNU ld~~
+- ~~wrapオプション~~
 
 ## Prerequisite
 
