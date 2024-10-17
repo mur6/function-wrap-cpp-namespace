@@ -5,9 +5,7 @@ project(simple_opencv_test)
 find_package(OpenCV 4 REQUIRED)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_C_COMPILER "/usr/local/Cellar/llvm/19.1.1/bin/clang")
-set(CMAKE_CXX_COMPILER "/usr/local/Cellar/llvm/19.1.1/bin/clang++")
-# set(CMAKE_LINKER "/usr/local/Cellar/llvm/19.1.1/bin/lld")
+
 
 if (EMSCRIPTEN)
     add_link_options(-l nodefs.js)
