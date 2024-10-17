@@ -32,5 +32,6 @@ So, it will generate `build/main.js`.
 ## Run
 
 ```bash
+cp images/sky.jpg /tmp
 node ./build/main.js
 ```
