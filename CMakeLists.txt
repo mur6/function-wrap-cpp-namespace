@@ -19,7 +19,7 @@ else()
 endif()
 
 include_directories(${OpenCV_INCLUDE_DIRS})
-add_executable(main main.cpp)
+add_executable(main src/main.cpp)
 target_link_libraries(main ${OpenCV_LIBS})
 
 option(USE_LINKER_WRAP_FUNC "Use linker wrap function" OFF)

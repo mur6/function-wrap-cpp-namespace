@@ -24,8 +24,7 @@ To build OpenCV with Emscripten, see here:
 
 ```bash
 export WASM_COMPILED_OPENCV_DIR=/path/to/opencv_projects/build_wasm-latest
-emcmake cmake -DOpenCV_DIR=$WASM_COMPILED_OPENCV_DIR -B build -S .
-cmake --build build
+bash make.sh build_em
 ```
 
 So, it will generate `build/main.js`.
