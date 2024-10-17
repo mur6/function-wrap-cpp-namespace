@@ -8,8 +8,8 @@ find_package(OpenCV 4 REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 
 if (EMSCRIPTEN)
-    # add_link_options(-l nodefs.js)
-    # add_link_options(-sNODERAWFS)
+    add_link_options(-l nodefs.js)
+    add_link_options(-sNODERAWFS)
     add_link_options(-sALLOW_MEMORY_GROWTH)
     add_compile_options(-fexceptions)
     add_link_options(-fexceptions)
@@ -19,12 +19,12 @@ else()
 endif()
 
 include_directories(${OpenCV_INCLUDE_DIRS})
-
-
-
-
-include_directories(${OpenCV_INCLUDE_DIRS})
 add_executable(main main.cpp)
 target_link_libraries(main ${OpenCV_LIBS})
-add_link_options("-fuse-ld=lld")
-add_link_options("-Wl,--wrap=cv_imread")
+
+option(USE_LINKER_WRAP_FUNC "Use linker wrap function" OFF)
+message(STATUS "USE_LINKER_WRAP_FUNC: ${USE_LINKER_WRAP_FUNC}")
+if (USE_LINKER_WRAP_FUNC)
+    add_link_options("-fuse-ld=lld")
+    add_link_options("-Wl,--wrap=cv_imread")
+endif()

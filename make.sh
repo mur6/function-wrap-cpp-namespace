@@ -1,9 +1,10 @@
 #!/bin/bash
 
-build() {
+build_em() {
     BUILD_DIR=build
     echo "BUILD_DIR: $BUILD_DIR"
-    cmake -B $BUILD_DIR -S .
+    rm -rf $BUILD_DIR
+    emcmake cmake -DOpenCV_DIR=$WASM_COMPILED_OPENCV_DIR -B build -S .
     cmake --build $BUILD_DIR
 }
 
@@ -19,14 +20,14 @@ case $1 in
     "clean")
         clean
         ;;
-    "build")
-        build
+    "build_em")
+        build_em
         ;;
     "exec_main")
         exec_main
         ;;
     *)
-        echo "Usage: $0 {clean|build|exec_main}"
+        echo "Usage: $0 {clean|build_em|exec_main}"
         exit 1
         ;;
 esac

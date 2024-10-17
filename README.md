@@ -10,6 +10,7 @@
 - wrapオプション
 
 ## Prerequisite
+
 You need to have emscripten, and OpenCV installed.
 
 See here to install emscripten:
@@ -22,22 +23,15 @@ To build OpenCV with Emscripten, see here:
 ## Build
 
 ```bash
-cd build
-emcmake cmake -DOpenCV_DIR={WASM_COMPILED_OPENCV_DIR}/build_wasm ..
-emmake make
-cd ..
+export WASM_COMPILED_OPENCV_DIR=/path/to/opencv_projects/build_wasm-latest
+emcmake cmake -DOpenCV_DIR=$WASM_COMPILED_OPENCV_DIR -B build -S .
+cmake --build build
 ```
 
 So, it will generate `build/main.js`.
 
-## build
+## Run
 
-```sh
-sh make.sh build
-```
-
-## execute
-
-```sh
-sh make.sh exec_main
+```bash
+node ./build/main.js
 ```
