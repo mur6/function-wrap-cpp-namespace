@@ -20,15 +20,11 @@ endif()
 
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# set $TARGET var is "main"
-set(TARGET main)
 
 
-add_executable(${TARGET} main.cpp)
-# set_property(TARGET ${TARGET} APPEND_STRING PROPERTY LINK_FLAGS " -fuse-ld=${MY_LD}")
-target_link_libraries(${TARGET} ${OpenCV_LIBS})
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+add_executable(main main.cpp)
+target_link_libraries(main ${OpenCV_LIBS})
 add_link_options("-fuse-ld=lld")
-# target_link_options(main PRIVATE -Wl,--wrap=cv_imread)
-# # add_link_options(-Wl)
 add_link_options("-Wl,--wrap=cv_imread")
-# set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--wrap=cv_imread")
